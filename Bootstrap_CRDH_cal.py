@@ -142,7 +142,7 @@ DAY_AXIS_SIZE = DAY_COORD_MAX + 1
 # The following are Windows paths; if running on a Linux server, just modify these 4 root paths.
 REFERENCE_PATH = '.../reference_no_antarctica.tif'
 
-DRY_ROOT = '.../Droughts/180days/3days_SPEI128/Observed'
+DRY_ROOT = '.../Droughts/180days/10days_SPEI128/Observed'
 HEAT_ROOT = '.../Heatwaves'
 
 OUTPUT_ROOT = '.../Compound/180days/results/SI/bootstrap_PMF/All_obs_mean'
@@ -169,12 +169,12 @@ def get_actual_years(common_start, common_end, target_start, target_end):
 def event_file_paths(dry_name, heat_name, event_type, year):
     """Return the start/end file paths for drought or heatwave events for a given combination and year."""
     if event_type == 'dry':
-        folder = os.path.join(DRY_ROOT, dry_name, '3days_events')
+        folder = os.path.join(DRY_ROOT, dry_name, '10days_events')
         start_file = os.path.join(folder, f'NH_Dry_Start_{year}.npy')
         end_file = os.path.join(folder, f'NH_Dry_End_{year}.npy')
 
     elif event_type == 'heat':
-        folder = os.path.join(HEAT_ROOT, heat_name, '3days_events')
+        folder = os.path.join(HEAT_ROOT, heat_name, '10days_events')
         start_file = os.path.join(folder, f'NH_Heat_Start_{year}.npy')
         end_file = os.path.join(folder, f'NH_Heat_End_{year}.npy')
 
